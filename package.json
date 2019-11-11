@@ -1,0 +1,41 @@
+{
+  "name": "validate-json-action",
+  "version": "0.0.0",
+  "private": true,
+  "description": "A Github action for validating JSON",
+  "main": "lib/main.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "format": "prettier --write '**/*.{ts,js,json}'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OrRosenblatt/validate-json-action.git"
+  },
+  "keywords": [
+    "actions",
+    "json-schema",
+    "ajv"
+  ],
+  "author": "OrRosenblatt",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.0.0",
+    "@types/jest": "^24.0.22",
+    "ajv": "^6.10.2",
+    "better-ajv-errors": "^0.6.7",
+    "chalk": "^2.4.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.6",
+    "husky": "^3.0.9",
+    "jest": "^24.9.0",
+    "jest-circus": "^24.7.1",
+    "lint-staged": "^9.4.2",
+    "prettier": "1.18.2",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.7.2"
+  }
+}

@@ -1,0 +1,20 @@
+name: 'Validate JSON'
+description: 'GitHub Action: Validate JSON'
+author: 'Or Rosenblatt'
+inputs:
+  schema:
+    description: 'Path in the repository to load the schema from.'
+    required: true
+    default: './schema.json'
+  json:
+    description: 'Path in the repository of the JSON files to validate. Can also be a list of paths, seperated by comma.'
+    required: true
+outputs:
+  invalid:
+    description: 'List of the invalid file paths, seperated by comma.'
+runs:
+  using: 'node12'
+  main: 'lib/main.js'
+branding: 
+  icon: 'check'
+  color: purple

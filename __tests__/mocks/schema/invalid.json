@@ -1,0 +1,6 @@
+{
+    "properties": {
+        "foo": { "type": "no_such_type" },
+        "bar": { "type": "number" }
+    }
+}
