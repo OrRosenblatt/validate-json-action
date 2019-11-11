@@ -1,2 +1,5 @@
 # Github Action: Validate JSON
-// TODO://
+Validate JSON with a single GitHub Action.
+
+
+> TBD
