@@ -1,6 +1,8 @@
 # Github Action: Validate JSON
 A GitHub Action that validates JSON files based on a JSON Schema.
 
+This project uses [`ajv`](https://github.com/epoberezkin/ajv), fast JSON schema validator, to perform the validation. 
+
 ## Usage
 
 ### Inputs
