@@ -3,15 +3,15 @@ description: 'GitHub Action: Validate JSON'
 author: 'Or Rosenblatt'
 inputs:
   schema:
-    description: 'Path in the repository to load the schema from.'
+    description: 'Relative file path under the repository of a JSON schema file to validate the other JSON files with.'
     required: true
     default: './schema.json'
   json:
-    description: 'Path in the repository of the JSON files to validate. Can also be a list of paths, seperated by comma.'
+    description: 'One or more relative file paths under the repository (seperated by comma) of the JSON files to validate with the schema provided.'
     required: true
 outputs:
   invalid:
-    description: 'List of the invalid file paths, seperated by comma.'
+    description: 'One or more of relative file paths of the invalid JSON files, found in the repository (seperated by comma).'
 runs:
   using: 'node12'
   main: 'lib/main.js'
