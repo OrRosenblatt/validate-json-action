@@ -3,7 +3,7 @@ import { InvalidSchemaError, InvalidJsonError, InvalidJsonFileError } from './er
 
 export const prettyLog = (fileName: string, error?: Error): void => {
     const prettyFileName = chalk`{grey {bold {underline ${fileName}}}}\n`;
-    const prettyMessagePrefix = error ? chalk`{red {bold ✗}}` : chalk`{green {bold ✓}}`;
+    const prettyMessagePrefix = error ? chalk`{red {bold ✗}} ` : chalk`{green {bold ✓}} `;
     let output = `${prettyMessagePrefix}${prettyFileName}`;
     switch (true) {
         case error instanceof InvalidSchemaError:
