@@ -5,6 +5,7 @@
   "description": "A Github action for validating JSON",
   "main": "lib/main.js",
   "scripts": {
+    "start": "node lib/main.js",
     "build": "tsc",
     "test": "jest",
     "format": "prettier --write '**/*.{ts,js,json}'"

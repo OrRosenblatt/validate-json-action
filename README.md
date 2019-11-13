@@ -39,6 +39,8 @@ jobs:
 ## TODOs
 
 - [x] Initial validation action
+- [x] Docker
+- [ ] Automate release process
 - [ ] Github workflow screenshots
 - [ ] Support `jsons` in PRs
 - [ ] Support `schema` & `jsons` by external reference (from S3/GitHub/etc...)
