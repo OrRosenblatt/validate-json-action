@@ -29,10 +29,11 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-    - uses: OrRosenblatt/validate-json-action@v1
-    - with: 
-        schema: /path/to/schema.json
-        jsons: /path/to/file.json,/path/to/another/file.json
+      - name: Validate JSON
+        uses: docker://orrosenblatt/validate-json-action:latest
+        with: 
+          schema: /path/to/schema.json
+          jsons: /path/to/file.json,/path/to/another/file.json
 ```
 
 
