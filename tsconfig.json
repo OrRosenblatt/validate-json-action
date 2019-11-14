@@ -6,9 +6,7 @@
         "strict": true,
         "noImplicitAny": false,
         "esModuleInterop": true,
-        "resolveJsonModule": true,
-        "outDir": "./lib",
-        "rootDir": "./src",
+        "resolveJsonModule": true
     },
-    "exclude": ["node_modules", "**/__tests__/**"]
+    "exclude": ["node_modules"]
 }
