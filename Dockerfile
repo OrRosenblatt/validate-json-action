@@ -12,9 +12,9 @@ RUN npm run build
 RUN npm run test
 
 FROM base as release
-COPY --from=dependencies /service/node_modules ./node_modules
-COPY --from=build /service/lib ./lib
-COPY --from=build /service/package.json .
+COPY --from=dependencies /service/node_modules /service/node_modules
+COPY --from=build /service/lib /service/lib
+COPY --from=build /service/package.json /service
 ENV NODE_ENV=production
 
-ENTRYPOINT [ "npm", "start" ]
+ENTRYPOINT [ "node", "/service/lib/main.js" ]
