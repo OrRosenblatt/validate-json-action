@@ -20,7 +20,7 @@ async function run() {
         if (invalidJsons.length > 0) {
             core.setFailed('Failed to validate all JSON files.');
         } else {
-            core.info(`:tada: All files were validate succesfully`);
+            core.info(`✅ All files were validate succesfully.`);
         }
     } catch (error) {
         core.setFailed(error.message);
