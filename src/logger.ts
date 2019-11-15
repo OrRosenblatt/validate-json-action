@@ -17,11 +17,11 @@ export const prettyLog = (fileName: string, error?: Error): void => {
         case error instanceof InvalidJsonFileError:
             const fileErr = error as InvalidJsonFileError;
             const reason =
-                fileErr === undefined
+                fileErr.innerError === undefined
                     ? ''
-                    : fileErr instanceof Error
-                    ? `${fileErr.name}${fileErr.message}`
-                    : fileErr['message'] || '';
+                    : fileErr.innerError instanceof Error
+                    ? `${fileErr.innerError.name}${fileErr.innerError.message}`
+                    : fileErr.innerError || '';
             output = `${output}${reason}`;
             break;
         case error instanceof Error:
