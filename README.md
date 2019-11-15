@@ -43,6 +43,6 @@ jobs:
 - [x] Docker
 - [ ] Automate release process
 - [ ] Github workflow screenshots
-- [ ] Support `jsons` in PRs
+- [ ] Support `exclude` & `include` in PRs (JSONs from pattern)
 - [ ] Support `schema` & `jsons` by external reference (from S3/GitHub/etc...)
 - [ ] Support `delimiter` input 
