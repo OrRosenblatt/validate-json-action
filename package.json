@@ -6,7 +6,7 @@
   "main": "lib/main.js",
   "scripts": {
     "start": "node lib/main.js",
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "test": "npm run build && jest",
     "format": "prettier --write '**/*.{ts,js,json}'"
   },
