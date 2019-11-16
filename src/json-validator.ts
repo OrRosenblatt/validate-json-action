@@ -4,7 +4,7 @@ import { schemaValidator } from './schema-validator';
 import { prettyLog } from './logger';
 
 export interface ValidationResult {
-    fileName: string;
+    filePath: string;
     valid: boolean;
 }
 
@@ -13,25 +13,25 @@ export const validateJsons = async (
     schemaRelativePath: string,
     jsonRelativePaths: string[]
 ): Promise<ValidationResult[]> => {
+    const schemaPath = path.join(sourceDir, schemaRelativePath);
     try {
-        const schema = await getJson(sourceDir, schemaRelativePath);
+        const schema = await getJson(schemaPath);
         const validatorFunc = await schemaValidator.prepareSchema(schema);
         return await Promise.all(
             jsonRelativePaths.map(async relativePath => {
-                const fileName = path.basename(relativePath);
+                const filePath = path.join(sourceDir, relativePath);
                 try {
-                    const jsonData = await getJson(sourceDir, relativePath);
+                    const jsonData = await getJson(filePath);
                     const result = await schemaValidator.validate(jsonData, validatorFunc);
-                    return { fileName, valid: result };
+                    return { filePath, valid: result };
                 } catch (e) {
-                    prettyLog(fileName, e);
-                    return { fileName, valid: false };
+                    prettyLog(filePath, e);
+                    return { filePath, valid: false };
                 }
             })
         );
     } catch (err) {
-        const schemaFileName = path.basename(schemaRelativePath);
-        prettyLog(schemaFileName, err);
-        return [{ fileName: schemaFileName || 'schema', valid: false }];
+        prettyLog(schemaPath, err);
+        return [{ filePath: schemaPath, valid: false }];
     }
 };
