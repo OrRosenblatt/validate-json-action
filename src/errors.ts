@@ -2,9 +2,9 @@ interface ValidationError {}
 
 export class InvalidJsonFileError extends Error implements ValidationError {
     public filePath: string;
-    public innerError?: Error | object;
+    public innerError: Error | object;
 
-    constructor(filePath: string, innerError?: Error | object) {
+    constructor(filePath: string, innerError: Error | object) {
         super();
         this.innerError = innerError;
         this.filePath = filePath;
