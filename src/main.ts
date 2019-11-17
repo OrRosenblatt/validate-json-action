@@ -1,10 +1,17 @@
 import * as core from '@actions/core';
-import { getConfig } from './configuration';
+import { getConfig, verifyConfigValues } from './configuration';
 import { validateJsons } from './json-validator';
 
 async function run() {
     try {
         const configuration = getConfig();
+        const configurationErrors = verifyConfigValues(configuration);
+        if (configurationErrors) {
+            configurationErrors.forEach(e => core.error(e));
+            core.setFailed('Missing configuration');
+            return;
+        }
+
         const jsonRelativePaths = configuration.JSONS.split(',');
 
         const validationResults = await validateJsons(

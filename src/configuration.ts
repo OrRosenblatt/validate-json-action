@@ -1,9 +1,9 @@
 import * as core from '@actions/core';
 
 export enum ConfigKey {
-    GITHUB_WORKSPACE,
-    SCHEMA,
-    JSONS,
+    GITHUB_WORKSPACE = 'GITHUB_WORKSPACE',
+    SCHEMA = 'SCHEMA',
+    JSONS = 'JSONS',
 }
 
 export type ConfigKeys = keyof typeof ConfigKey;
@@ -45,4 +45,17 @@ export function getConfig(): Config {
         config[ConfigKey[i.key]] = value;
     });
     return config as Config;
+}
+
+export function verifyConfigValues(config: Config): string[] | undefined {
+    let errors: string[] = [];
+    Object.keys(config).forEach(key => {
+        if (config[key] === '') {
+            const mapping = configMapping.find(i => i.key === key);
+            errors.push(
+                `🚨 Missing ${key} ${mapping!.setup === 'ENV' ? 'environment variable' : mapping!.setup.toLowerCase()}`
+            );
+        }
+    });
+    return errors.length > 0 ? errors : undefined;
 }
