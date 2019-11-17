@@ -21,19 +21,20 @@ This project uses [`ajv`](https://github.com/epoberezkin/ajv), fast JSON schema 
 An example `.github/workflows/validate.yml` workflow to run JSON validation on the repository: 
 
 ```yaml
-name: Validate JSON
+name: Validate JSONs
 
 on: [pull_request]
 
 jobs:
-  validate:
+  verify-json-validation:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
       - name: Validate JSON
         uses: docker://orrosenblatt/validate-json-action:latest
-        with: 
-          schema: /path/to/schema.json
-          jsons: /path/to/file.json,/path/to/another/file.json
+        env:
+          INPUT_SCHEMA: /path/to/schema.json
+          INPUT_JSONS: /path/to/file.json,/path/to/another/file.json
 ```
 
 
