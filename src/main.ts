@@ -13,7 +13,7 @@ async function run() {
             jsonRelativePaths
         );
 
-        const invalidJsons = validationResults.filter(res => !res.valid).map(res => res.fileName);
+        const invalidJsons = validationResults.filter(res => !res.valid).map(res => res.filePath);
 
         core.setOutput('INVALID', invalidJsons.length > 0 ? invalidJsons.join(',') : '');
 

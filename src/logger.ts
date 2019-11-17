@@ -1,10 +1,10 @@
 import chalk from 'chalk';
 import { InvalidSchemaError, InvalidJsonError, InvalidJsonFileError } from './errors';
 
-export const prettyLog = (fileName: string, error?: Error): void => {
-    const prettyFileName = chalk`{grey {bold {underline ${fileName}}}}\n`;
+export const prettyLog = (filePath: string, error?: Error): void => {
+    const prettyFilePath = chalk`{grey {bold {underline ${filePath}}}}`;
     const prettyMessagePrefix = error ? chalk`{red {bold ✗}} ` : chalk`{green {bold ✓}} `;
-    let output = `${prettyMessagePrefix}${prettyFileName}`;
+    let output = `${prettyMessagePrefix}${prettyFilePath}\n`;
     switch (true) {
         case error instanceof InvalidSchemaError:
             const schemaErr = error as InvalidSchemaError;
@@ -17,16 +17,14 @@ export const prettyLog = (fileName: string, error?: Error): void => {
         case error instanceof InvalidJsonFileError:
             const fileErr = error as InvalidJsonFileError;
             const reason =
-                fileErr.innerError === undefined
-                    ? ''
-                    : fileErr.innerError instanceof Error
+                fileErr.innerError instanceof Error
                     ? `${fileErr.innerError.name}${fileErr.innerError.message}`
                     : fileErr.innerError || '';
             output = `${output}${reason}`;
             break;
         case error instanceof Error:
-            const err = error as InvalidJsonError;
-            output = output.concat(err.message || '');
+            const err = error as Error;
+            output = `${output}${err.name} - ${err.message}\n${err.stack}`;
             break;
         default:
             break;
