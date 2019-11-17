@@ -17,12 +17,14 @@ export const validateJsons = async (
     try {
         const schema = await getJson(schemaPath);
         const validatorFunc = await schemaValidator.prepareSchema(schema);
+        prettyLog(schemaPath);
         return await Promise.all(
             jsonRelativePaths.map(async relativePath => {
                 const filePath = path.join(sourceDir, relativePath);
                 try {
                     const jsonData = await getJson(filePath);
                     const result = await schemaValidator.validate(jsonData, validatorFunc);
+                    prettyLog(filePath);
                     return { filePath, valid: result };
                 } catch (e) {
                     prettyLog(filePath, e);
