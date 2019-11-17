@@ -5,7 +5,7 @@ import { validateJsons } from './json-validator';
 async function run() {
     try {
         const configuration = getConfig();
-        const jsonRelativePaths = configuration.JSONS.split(',');
+        const jsonRelativePaths = configuration.JSONS === '' ? [] : configuration.JSONS.split(',');
 
         const validationResults = await validateJsons(
             configuration.GITHUB_WORKSPACE,
