@@ -29,5 +29,5 @@ export const prettyLog = (filePath: string, error?: Error): void => {
         default:
             break;
     }
-    console.log(output);
+    console.log(`${output}\n`);
 };
