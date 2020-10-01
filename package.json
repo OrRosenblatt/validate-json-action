@@ -22,7 +22,7 @@
   "author": "OrRosenblatt",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.0.0",
+    "@actions/core": "^1.2.6",
     "@types/jest": "^24.0.22",
     "ajv": "^6.10.2",
     "better-ajv-errors": "^0.6.7",
