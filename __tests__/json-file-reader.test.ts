@@ -17,7 +17,7 @@ describe('Process a JSON file', () => {
         });
     });
 
-    test('should throw an error when procesing invalid JSON file', async () => {
+    test('should throw an error when processing invalid JSON file', async () => {
         const invalidJsonFile = `${mocks_dir}/tested-data/invalid_by_format.json`;
 
         const task = getJson(invalidJsonFile);

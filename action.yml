@@ -7,11 +7,11 @@ inputs:
     required: true
     default: './schema.json'
   json:
-    description: 'One or more relative file paths under the repository (seperated by comma) of the JSON files to validate with the schema provided.'
+    description: 'One or more relative file paths under the repository (separated by comma) of the JSON files to validate with the schema provided.'
     required: true
 outputs:
   invalid:
-    description: 'One or more of relative file paths of the invalid JSON files, found in the repository (seperated by comma).'
+    description: 'One or more of relative file paths of the invalid JSON files, found in the repository (separated by comma).'
 runs:
   using: 'node12'
   main: 'lib/main.js'
