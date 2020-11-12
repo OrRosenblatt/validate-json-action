@@ -27,6 +27,7 @@
     "ajv": "^6.10.2",
     "better-ajv-errors": "^0.6.7",
     "chalk": "^2.4.2",
+    "glob": "^7.1.5",
     "path": "^0.12.7"
   },
   "devDependencies": {
