@@ -1,4 +1,4 @@
-name: 'Validate JSON'
+name: 'Validate JSON with Glob'
 description: 'GitHub Action: Validate JSON'
 author: 'Or Rosenblatt'
 inputs:
