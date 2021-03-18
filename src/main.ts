@@ -1,4 +1,5 @@
 import * as core from '@actions/core';
+import * as glob from '@actions/glob';
 import { getConfig, verifyConfigValues } from './configuration';
 import { validateJsons } from './json-validator';
 
@@ -12,7 +13,9 @@ async function run() {
             return;
         }
 
-        const jsonRelativePaths = configuration.JSONS.split(',');
+        const patterns = configuration.JSONS.split(',');
+        const globber = await glob.create(patterns.join('\n'));
+        const jsonRelativePaths = await globber.glob();
 
         const validationResults = await validateJsons(
             configuration.GITHUB_WORKSPACE,
