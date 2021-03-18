@@ -37,6 +37,24 @@ describe('Github action results', () => {
         expect(result.toString()).toContain(`::set-output name=INVALID,::${os.EOL}`);
     });
 
+    test('JSONS argument accepts globs', () => {
+        // Arrange
+        mockedConfig.mockValue('SCHEMA', './mocks/schema/valid.json');
+        mockedConfig.mockValue('JSONS', './mocks/tested-*/valid.json');
+
+        mockedConfig.set();
+
+        const options: cp.ExecOptions = {
+            env: process.env,
+        };
+
+        // Act
+        const result = cp.execSync(`node ${ip}`, options);
+
+        // Assert
+        expect(result.toString()).toContain(`::set-output name=INVALID,::${os.EOL}`);
+    });
+
     test('Error is thrown when GITHUB_WORKSPACE environment variable is not set', () => {
         // Arrange
         mockedConfig.resetAll();
