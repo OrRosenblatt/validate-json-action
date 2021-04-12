@@ -30,11 +30,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Validate JSON
-        uses: docker://nhalstead00/validate-json-action:latest
-        env:
-          INPUT_SCHEMA: /path/to/schema.json
-          INPUT_JSONS: /path/to/file.json,/path/to/another/file.json
+      - name: Validate JSON with Glob
+        uses: nhalstead/validate-json-action@0.1.3
+        with:
+          schema: /path/to/schema.json
+          jsons: /path/to/file.json,/path/to/another/file.json
 ```
 
 
