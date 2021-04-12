@@ -1,9 +1,13 @@
 FROM node:12-alpine as base
 WORKDIR /service
 
-FROM base as build
-COPY . ./
+FROM base as dependencies
+COPY package.json package-lock.json tsconfig.json ./
 RUN npm ci --production true
+
+FROM dependencies as build
+RUN npm ci --production false
+COPY . ./
 RUN npm run build
 
 FROM base as release
