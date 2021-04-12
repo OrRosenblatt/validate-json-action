@@ -13,8 +13,8 @@ outputs:
   invalid:
     description: 'One or more of relative file paths of the invalid JSON files, found in the repository (separated by comma).'
 runs:
-  using: 'node12'
-  main: 'lib/main.js'
+  using: 'docker'
+  image: 'Dockerfile'
 branding: 
   icon: 'check'
   color: purple
