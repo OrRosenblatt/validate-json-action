@@ -1,6 +1,6 @@
 {
   "name": "validate-json-action",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "description": "A Github action for validating JSON",
   "main": "lib/main.js",
@@ -27,6 +27,7 @@
     "ajv": "^6.10.2",
     "better-ajv-errors": "^0.6.7",
     "chalk": "^2.4.2",
+    "glob": "^7.1.5",
     "path": "^0.12.7"
   },
   "devDependencies": {

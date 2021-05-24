@@ -1,6 +1,7 @@
 import * as core from '@actions/core';
 import { getConfig, verifyConfigValues } from './configuration';
 import { validateJsons } from './json-validator';
+import * as glob from 'glob';
 
 async function run() {
     try {
@@ -12,7 +13,17 @@ async function run() {
             return;
         }
 
-        const jsonRelativePaths = configuration.JSONS.split(',');
+        const jsonRelativePaths = configuration.JSONS.split(',')
+            // Expand all glob formulas
+            .reduce((accum: string[], current) => {
+                if (current.indexOf('*') === -1) {
+                    return [...accum, current];
+                }
+
+                const globFormula = current.replace(/\\/, '/');
+                const expandedGlob = glob.sync(globFormula, {});
+                return [...accum, ...expandedGlob];
+            }, []);
 
         const validationResults = await validateJsons(
             configuration.GITHUB_WORKSPACE,
