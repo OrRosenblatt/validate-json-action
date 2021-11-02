@@ -1,6 +1,10 @@
-# Github Action: Validate JSON
+<p align="center">
+  <img src="https://img.icons8.com/color-glass/128/000000/approval.png" alt="Created by Icons8 Icon" />
+</p>
 
-A GitHub Action that validates JSON files based on a JSON Schema.
+# Validate JSON Github Action
+
+Easy to use GitHub Action to validates JSON files based on a JSON Schema.
 
 This project uses [`ajv`](https://github.com/epoberezkin/ajv), fast JSON schema validator, to perform the validation. 
 
@@ -38,4 +42,6 @@ jobs:
           jsons: /path/to/file.json,/path/to/another/file.json
 ```
 
+### Other People using this GitHub Action
 
+[GitHub Search](https://github.com/search?q=nhalstead%2Fvalidate-json-action+extension%3Ayml+extension%3Ayaml+path%3A.github%2Fworkflows+fork%3Atrue&type=Code&ref=advsearch&l=&l=)
