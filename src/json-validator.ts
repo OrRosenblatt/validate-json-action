@@ -1,4 +1,4 @@
-import path from 'path';
+import * as path from 'path';
 import { getJson } from './json-file-reader';
 import { schemaValidator } from './schema-validator';
 import { prettyLog } from './logger';
