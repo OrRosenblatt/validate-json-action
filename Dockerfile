@@ -1,4 +1,4 @@
-FROM node:12-alpine as base
+FROM node:24-alpine as base
 WORKDIR /service
 
 FROM base as dependencies
