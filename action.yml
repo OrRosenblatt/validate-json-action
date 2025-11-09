@@ -13,7 +13,7 @@ outputs:
   invalid:
     description: 'One or more of relative file paths of the invalid JSON files, found in the repository (seperated by comma).'
 runs:
-  using: 'node12'
+  using: 'node24'
   main: 'lib/main.js'
 branding: 
   icon: 'check'
