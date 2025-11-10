@@ -29,8 +29,8 @@ async function run() {
         } else {
             core.info(`✅ All files were validated successfully.`);
         }
-    } catch (error) {
-        core.setFailed(error.message);
+    } catch (error: any) {
+        core.setFailed(error?.message || 'Unknown error');
     }
 }
 

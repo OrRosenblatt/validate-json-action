@@ -26,7 +26,7 @@ describe('Github action results', () => {
 
         mockedConfig.set();
 
-        const options: cp.ExecOptions = {
+        const options: cp.ExecSyncOptions = {
             env: process.env,
         };
 
@@ -45,14 +45,14 @@ describe('Github action results', () => {
 
         mockedConfig.set();
 
-        const options: cp.ExecOptions = {
+        const options: cp.ExecSyncOptions = {
             env: process.env,
         };
 
         try {
             // Act
             cp.execSync(`node ${ip}`, options);
-        } catch (ex) {
+        } catch (ex: any) {
             // Assert
             expect(ex).not.toBeUndefined();
             expect(ex.output).not.toBeUndefined();
@@ -66,14 +66,14 @@ describe('Github action results', () => {
 
         mockedConfig.set();
 
-        const options: cp.ExecOptions = {
+        const options: cp.ExecSyncOptions = {
             env: process.env,
         };
 
         try {
             // Act
             cp.execSync(`node ${ip}`, options);
-        } catch (ex) {
+        } catch (ex: any) {
             // Assert
             expect(ex).not.toBeUndefined();
             expect(ex.output).not.toBeUndefined();
@@ -87,14 +87,14 @@ describe('Github action results', () => {
 
         mockedConfig.set();
 
-        const options: cp.ExecOptions = {
+        const options: cp.ExecSyncOptions = {
             env: process.env,
         };
 
         try {
             // Act
             cp.execSync(`node ${ip}`, options);
-        } catch (ex) {
+        } catch (ex: any) {
             // Assert
             expect(ex).not.toBeUndefined();
             expect(ex.output).not.toBeUndefined();
@@ -111,14 +111,14 @@ describe('Github action results', () => {
 
         mockedConfig.set();
 
-        const options: cp.ExecOptions = {
+        const options: cp.ExecSyncOptions = {
             env: process.env,
         };
 
         try {
             // Act
             cp.execSync(`node ${ip}`, options);
-        } catch (ex) {
+        } catch (ex: any) {
             // Assert
             expect(ex).not.toBeUndefined();
             expect(ex.output).not.toBeUndefined();
@@ -135,14 +135,14 @@ describe('Github action results', () => {
 
         mockedConfig.set();
 
-        const options: cp.ExecOptions = {
+        const options: cp.ExecSyncOptions = {
             env: process.env,
         };
 
         try {
             // Act
             cp.execSync(`node ${ip}`, options);
-        } catch (ex) {
+        } catch (ex: any) {
             // Assert
             expect(ex).not.toBeUndefined();
             expect(ex.output).not.toBeUndefined();
@@ -158,14 +158,14 @@ describe('Github action results', () => {
 
         mockedConfig.set();
 
-        const options: cp.ExecOptions = {
+        const options: cp.ExecSyncOptions = {
             env: process.env,
         };
 
         try {
             // Act
             cp.execSync(`node ${ip}`, options);
-        } catch (ex) {
+        } catch (ex: any) {
             // Assert
             expect(ex).not.toBeUndefined();
             expect(ex.output).not.toBeUndefined();
@@ -181,14 +181,14 @@ describe('Github action results', () => {
 
         mockedConfig.set();
 
-        const options: cp.ExecOptions = {
+        const options: cp.ExecSyncOptions = {
             env: process.env,
         };
 
         try {
             // Act
             cp.execSync(`node ${ip}`, options);
-        } catch (ex) {
+        } catch (ex: any) {
             // Assert
             expect(ex).not.toBeUndefined();
             expect(ex.output).not.toBeUndefined();

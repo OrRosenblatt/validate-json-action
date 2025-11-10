@@ -26,13 +26,13 @@ export const validateJsons = async (
                     const result = await schemaValidator.validate(jsonData, validatorFunc);
                     prettyLog(filePath);
                     return { filePath, valid: result };
-                } catch (e) {
+                } catch (e: any) {
                     prettyLog(filePath, e);
                     return { filePath, valid: false };
                 }
             })
         );
-    } catch (err) {
+    } catch (err: any) {
         prettyLog(schemaPath, err);
         return [{ filePath: schemaPath, valid: false }];
     }
