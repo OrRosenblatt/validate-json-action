@@ -1,6 +1,9 @@
 name: "PR Checks"
 on: [pull_request, push]
 
+env:
+  HUSKY: 0
+
 jobs:
   test:
     runs-on: ubuntu-latest
