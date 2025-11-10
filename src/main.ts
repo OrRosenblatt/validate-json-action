@@ -7,7 +7,7 @@ async function run() {
         const configuration = getConfig();
         const configurationErrors = verifyConfigValues(configuration);
         if (configurationErrors) {
-            configurationErrors.forEach(e => core.error(e));
+            configurationErrors.forEach((e) => core.error(e));
             core.setFailed('Missing configuration');
             return;
         }
@@ -20,7 +20,7 @@ async function run() {
             jsonRelativePaths
         );
 
-        const invalidJsons = validationResults.filter(res => !res.valid).map(res => res.filePath);
+        const invalidJsons = validationResults.filter((res) => !res.valid).map((res) => res.filePath);
 
         core.setOutput('INVALID', invalidJsons.length > 0 ? invalidJsons.join(',') : '');
 

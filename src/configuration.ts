@@ -28,7 +28,7 @@ export const configMapping: KeyMapping[] = [
 
 export function getConfig(): Config {
     let config = {};
-    configMapping.forEach(i => {
+    configMapping.forEach((i) => {
         let value: string;
         switch (i.setup) {
             case 'ENV':
@@ -49,9 +49,9 @@ export function getConfig(): Config {
 
 export function verifyConfigValues(config: Config): string[] | undefined {
     let errors: string[] = [];
-    Object.keys(config).forEach(key => {
+    Object.keys(config).forEach((key) => {
         if (config[key] === '') {
-            const mapping = configMapping.find(i => i.key === key);
+            const mapping = configMapping.find((i) => i.key === key);
             errors.push(
                 `🚨 Missing ${key} ${mapping!.setup === 'ENV' ? 'environment variable' : mapping!.setup.toLowerCase()}`
             );
