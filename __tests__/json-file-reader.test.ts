@@ -11,7 +11,7 @@ describe('Process a JSON file', () => {
         const result = await getJson(validJsonFile);
         expect(typeof result).toBe('object');
 
-        Object.keys(excepted).forEach(key => {
+        Object.keys(excepted).forEach((key) => {
             expect(result).toHaveProperty(key);
             expect(result[key]).toEqual(excepted[key]);
         });

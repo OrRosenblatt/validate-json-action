@@ -13,7 +13,7 @@ export class MockedConfig {
     }
 
     public mockValue(key: ConfigKeys, value: string) {
-        const keyMapping = configMapping.find(x => ConfigKey[x.key] === key);
+        const keyMapping = configMapping.find((x) => ConfigKey[x.key] === key);
         if (keyMapping) {
             this.mockedConfig[keyMapping.setup === 'INPUT' ? `${keyMapping.setup}_${key}` : key] = value;
         }
