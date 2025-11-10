@@ -23,7 +23,7 @@ describe('Process a JSON file', () => {
         const task = getJson(invalidJsonFile);
 
         try {
-            expect(await task).toThrowError(InvalidJsonFileError);
+            expect(await task).toThrow(InvalidJsonFileError);
         } catch (e) {
             const err = e as InvalidJsonFileError;
             expect(err.filePath).toEqual(invalidJsonFile);
@@ -35,7 +35,7 @@ describe('Process a JSON file', () => {
 
         const task = getJson(notExistingFile);
         try {
-            expect(await task).toThrowError(InvalidJsonFileError);
+            expect(await task).toThrow(InvalidJsonFileError);
         } catch (e) {
             const err = e as InvalidJsonFileError;
             expect(err.filePath).toEqual(notExistingFile);

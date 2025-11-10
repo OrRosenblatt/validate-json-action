@@ -26,7 +26,7 @@ describe('Prepare and validate JSON schema', () => {
         const task = schemaValidator.prepareSchema(invalidSchema);
 
         try {
-            expect(await task).toThrowError(InvalidSchemaError);
+            expect(await task).toThrow(InvalidSchemaError);
         } catch (e) {}
     });
 });
@@ -53,7 +53,7 @@ describe('Validate JSON matches schema', () => {
         const task = schemaValidator.validate(invalidData, mockedValidator);
 
         try {
-            expect(await task).toThrowError(InvalidJsonError);
+            expect(await task).toThrow(InvalidJsonError);
         } catch (e) {
             const err = e as InvalidJsonError;
             expect(err.enrichedError).toEqual('Some errors');
