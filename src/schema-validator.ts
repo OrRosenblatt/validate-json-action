@@ -1,15 +1,15 @@
-import Ajv, { ValidateFunction } from 'ajv';
+import Ajv, { ValidateFunction, AnySchemaObject } from 'ajv';
 import betterAjvErrors from 'better-ajv-errors';
 import { InvalidSchemaError, InvalidJsonError } from './errors';
 
 class SchemaValidator {
-    private schemaValidator: Ajv.Ajv;
+    private schemaValidator: Ajv;
 
     constructor() {
-        this.schemaValidator = new Ajv({ allErrors: true, jsonPointers: true, loadSchema: this.loadSchema });
+        this.schemaValidator = new Ajv({ allErrors: true, loadSchema: this.loadSchema });
     }
 
-    public instance(): Ajv.Ajv {
+    public instance(): Ajv {
         return this.schemaValidator;
     }
 
@@ -28,15 +28,18 @@ class SchemaValidator {
 
         if (!valid) {
             const errors = this.schemaValidator.errorsText(validator.errors);
-            const output = betterAjvErrors(validator.schema, data, validator.errors, { format: 'cli', indent: 4 });
+            const output = betterAjvErrors(validator.schema, data, validator.errors ?? [], {
+                format: 'cli',
+                indent: 4,
+            });
             throw new InvalidJsonError(errors, (output || {}) as string);
         }
 
         return valid;
     }
 
-    private async loadSchema() {
-        return Promise.resolve(true);
+    private async loadSchema(_uri: string): Promise<AnySchemaObject> {
+        return Promise.resolve({});
     }
 }
 
