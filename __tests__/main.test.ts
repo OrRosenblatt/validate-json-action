@@ -34,7 +34,7 @@ describe('Github action results', () => {
         const result = cp.execSync(`node ${ip}`, options);
 
         // Assert
-        expect(result.toString()).toContain(`::set-output name=INVALID,::${os.EOL}`);
+        expect(result.toString()).toContain(`All files were validated successfully.`);
     });
 
     test('Error is thrown when GITHUB_WORKSPACE environment variable is not set', () => {
