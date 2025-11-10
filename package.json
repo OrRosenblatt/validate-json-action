@@ -25,7 +25,7 @@
   "dependencies": {
     "@actions/core": "^1.11.1",
     "ajv": "^6.10.2",
-    "better-ajv-errors": "^0.6.7",
+    "better-ajv-errors": "^2.0.2",
     "chalk": "^2.4.2"
   },
   "devDependencies": {
