@@ -3,10 +3,10 @@ WORKDIR /service
 
 FROM base as dependencies
 COPY package.json package-lock.json tsconfig.json ./
-RUN npm ci --production true
+RUN npm ci --omit=dev
 
 FROM dependencies as build
-RUN npm ci --production false
+RUN npm ci
 COPY . ./
 RUN npm run build
 RUN npm run test
